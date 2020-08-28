@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  margin: auto;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  padding: 2rem;
+}
+
+h1 {
+  margin: 1rem;
+}
+
+form {
+  align-content: center;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+input {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
