@@ -31,7 +31,7 @@ const AuthState = props => {
       setAuthToken(localStorage.authToken);
     }
     try {
-      const res = await axios.get('/api/auth');
+      const res = await axios.get('./api/auth');
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (error) {
       dispatch({ type: AUTH_ERROR });
@@ -40,17 +40,12 @@ const AuthState = props => {
 
   // Register user
   const register = async userData => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
     try {
-      const res = await axios.post('/api/users', userData, config);
+      const res = await axios.post('/api/users', userData);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
       loadUser();
     } catch (error) {
-      dispatch({ type: REGISTER_FAIL, payload: error.response.data.msg });
+      dispatch({ type: REGISTER_FAIL, payload: error });
     }
   }
 

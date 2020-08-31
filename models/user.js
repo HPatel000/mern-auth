@@ -10,6 +10,9 @@ const UserSchema = mongoose.Schema({
     required: true,
     unique: true
   },
+  img: {
+    type: String
+  },
   email: {
     type: String,
     required: true,

@@ -11,46 +11,53 @@ const Registration = (props) => {
   const { setAlert } = AlertContext;
 
   useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/');
+    }
     if (error === 'User already exists') {
       setAlert(error);
       clearErrors();
     }
     // eslint-disable-next-line
-  }, [error, props.history, isAuthenticated]);
+  }, [error, isAuthenticated, props.history]);
 
   const [user, setuser] = useState({
     name: '',
     username: '',
+    img: null,
     email: '',
     password: '',
     password2: ''
   });
 
-  const { name, username, email, password, password2 } = user;
+  const { name, username, img, email, password, password2 } = user;
 
   const onChange = e => setuser({ ...user, [e.target.name]: e.target.value });
+  const onFileSelect = e => {
+    setuser({ ...user, [e.target.name]: e.target.files[0] });
+  }
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(user);
-    if (name === '' || username === '' || email === '' || password === '') {
+    if (name === '' || username === '' || email === '' || password === '' || img === null) {
       setAlert('Please Enter all the Fields');
     } else if (password !== password2) {
       setAlert('Passwrods are not same');
     } else {
-      register({
-        name,
-        username,
-        email,
-        password
-      });
+      const data = new FormData();
+      data.append('name', name);
+      data.append('username', username);
+      data.append('img', img);
+      data.append('email', email);
+      data.append('password', password);
+      register(data);
     }
   }
 
   return (
     <div>
       <h1>Registration</h1>
-      <form onSubmit={onSubmit}>
+      <form encType='multipart/form-data' onSubmit={onSubmit}>
         <label htmlFor='name'>Name </label>
         <br />
         <input
@@ -60,18 +67,6 @@ const Registration = (props) => {
           onChange={onChange}
           required
           placeholder='ABC'
-          autoComplete='off'
-        />
-        <br />
-        <label htmlFor='email'>Email </label>
-        <br />
-        <input
-          type='email'
-          name='email'
-          value={email}
-          onChange={onChange}
-          required
-          placeholder='abc@email.com'
           autoComplete='off'
         />
         <br />
@@ -87,6 +82,27 @@ const Registration = (props) => {
           autoComplete='off'
         />
         <br />
+        <label htmlFor='img'>Profile</label>
+        <br />
+        <input
+          accept='image/*'
+          type='file'
+          name='img'
+          onChange={onFileSelect}
+        />
+        <br />
+        <label htmlFor='email'>Email </label>
+        <br />
+        <input
+          type='email'
+          name='email'
+          value={email}
+          onChange={onChange}
+          required
+          placeholder='abc@email.com'
+          autoComplete='off'
+        />
+        <br />
         <label htmlFor='password'>Password </label>
         <br />
         <input
@@ -98,7 +114,6 @@ const Registration = (props) => {
           placeholder='******'
           minLength='6'
           autoComplete='off'
-
         />
         <br />
         <label htmlFor='password2'>Confirm password </label>
