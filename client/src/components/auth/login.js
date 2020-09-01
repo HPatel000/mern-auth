@@ -72,7 +72,7 @@ const Login = (props) => {
         <br />
         <button type='submit'>Log In</button>
       </form>
-      <Link to='/register'>Register</Link>
+      <Link to='/register' className='links'>Register</Link>
     </div>
   )
 }
