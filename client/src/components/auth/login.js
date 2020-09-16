@@ -48,6 +48,7 @@ const Login = (props) => {
         <label htmlFor='email'>Email </label>
         <br />
         <input
+          id='email'
           type='email'
           name='email'
           value={email}
@@ -60,6 +61,7 @@ const Login = (props) => {
         <label htmlFor='password'>Password </label>
         <br />
         <input
+          id='password'
           type='password'
           name='password'
           value={password}

@@ -5,8 +5,8 @@ const Alert = () => {
   const AlertContext = useContext(alertContext);
   const { alerts } = AlertContext;
   return (
-    alerts.lenght > 0 && alerts.map(alert => (
-      <div key={alert.id}>{alert.msg}</div>
+    alerts.length > 0 && alerts.map(alert => (
+      <div className='alert' key={alert.id}>{alert.msg}</div>
     ))
   )
 }

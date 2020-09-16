@@ -61,6 +61,7 @@ const Registration = (props) => {
         <label htmlFor='name'>Name </label>
         <br />
         <input
+          id='name'
           type='text'
           name='name'
           value={name}
@@ -73,6 +74,7 @@ const Registration = (props) => {
         <label htmlFor='username'>User name </label>
         <br />
         <input
+          id='username'
           type='text'
           name='username'
           value={username}
@@ -85,6 +87,7 @@ const Registration = (props) => {
         <label htmlFor='img'>Profile</label>
         <br />
         <input
+          id='img'
           accept='image/*'
           type='file'
           name='img'
@@ -94,6 +97,7 @@ const Registration = (props) => {
         <label htmlFor='email'>Email </label>
         <br />
         <input
+          id='email'
           type='email'
           name='email'
           value={email}
@@ -106,6 +110,7 @@ const Registration = (props) => {
         <label htmlFor='password'>Password </label>
         <br />
         <input
+          id='password'
           type='password'
           name='password'
           value={password}
@@ -118,6 +123,7 @@ const Registration = (props) => {
         <label htmlFor='password2'>Confirm password </label>
         <br />
         <input
+          id='password2'
           type='password'
           name='password2'
           value={password2}
