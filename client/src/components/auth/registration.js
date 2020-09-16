@@ -113,7 +113,6 @@ const Registration = (props) => {
           required
           placeholder='******'
           minLength='6'
-          autoComplete='off'
         />
         <br />
         <label htmlFor='password2'>Confirm password </label>
@@ -126,7 +125,6 @@ const Registration = (props) => {
           required
           placeholder='******'
           minLength='6'
-          autoComplete='off'
         />
         <br />
         <button type='submit'>Register</button>

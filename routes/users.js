@@ -10,7 +10,7 @@ const { check, validationResult } = require('express-validator');
 // @route POST api/users
 // @desc Register a user
 // @access Public
-router.post('/', upload, [
+router.post('/', upload.single('img'), [
   check('name', 'Enter your name').not().isEmpty(),
   check('username', 'Set a username').not().isEmpty(),
   check('email', 'Please enter valid email').isEmail(),

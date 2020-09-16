@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 // define routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/image', require('./routes/image'));
 
 // listen to the port
 const PORT = process.env.PORT || 5000;
